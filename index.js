@@ -19,9 +19,13 @@ mongoose.connect(
 
 // Routes
 const adminRoute = require("./routes/admin");
+// const productsRoute = require("./routes/products");
+const categoriesRoute = require("./routes/categories");
 
-// Router
+// Routers
 app.use("/api/admin", adminRoute);
+app.use("/api/categories", categoriesRoute);
+// app.use("/api/products", productsRoute);
 
 app.get("/", (req, res) => {
   res.send(`API is working`);
