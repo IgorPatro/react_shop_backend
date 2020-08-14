@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Category = require("../models/Category");
+const verifyAdmin = require("../verifyAdmin");
 
 // Getting all categories
 router.get("/all", async (req, res) => {
@@ -12,7 +13,7 @@ router.get("/all", async (req, res) => {
 });
 
 // Adding new category
-router.post("/add", async (req, res) => {
+router.post("/add", verifyAdmin, async (req, res) => {
   const category = new Category({
     name: req.body.name,
   });
